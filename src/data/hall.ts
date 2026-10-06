@@ -16,6 +16,7 @@ export const camisasPesadas: Lenda[] = [
       "2 gols na final do título (2ª Meller Cup)",
       "Artilheiro da 2ª Meller Cup",
       "MVP da 2ª Meller Cup",
+      "Gol mais bonito da 2ª Meller Cup",
       "6 gols em 5 partidas pelo clube",
     ],
   },
@@ -34,6 +35,7 @@ export const camisasPesadas: Lenda[] = [
     numero: 12,
     titulo: "O paredão",
     feitos: [
+      "Melhor goleiro da 2ª Meller Cup",
       "Jogador com mais minutos em campo pelo Halcones",
       "Esteve em campo em 100% do tempo de todas as partidas do clube",
     ],
