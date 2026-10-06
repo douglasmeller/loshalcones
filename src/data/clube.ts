@@ -4,6 +4,8 @@ export const clube = {
   sigla: "CFLH",
   slogan: "A volar Halcones",
   fundacao: "2025",
+  fundacaoData: "2025-01-11",
+  fundador: "douglas", // slug de jogadores.ts
   escudo: "/Escudo.png",
   logo: "/ClubdeFutbolLosHalcones.png",
   descricao:

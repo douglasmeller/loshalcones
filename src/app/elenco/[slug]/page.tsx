@@ -3,9 +3,11 @@ import Image from "next/image";
 import Link from "next/link";
 import { notFound } from "next/navigation";
 import { Numero, Secao, Selo } from "@/components/ui";
+import { clube } from "@/data/clube";
 import { camisasPesadas } from "@/data/hall";
 import { acharJogador, jogadores } from "@/data/jogadores";
 import { fichaDe } from "@/lib/calculos";
+import { formatarData } from "@/lib/datas";
 
 export function generateStaticParams() {
   return jogadores.map((j) => ({ slug: j.slug }));
@@ -42,6 +44,7 @@ export default async function Jogador({ params }: PageProps<"/elenco/[slug]">) {
         </div>
         <div>
           <div className="flex flex-wrap gap-2">
+            {f.fundador && <Selo resultado="campeao">Fundador</Selo>}
             {f.capitao && <Selo resultado="campeao">Capitão</Selo>}
             {f.goleiro && <Selo resultado="outro">Goleiro</Selo>}
             {lenda && <Selo resultado="campeao">Camisa pesada</Selo>}
@@ -50,6 +53,9 @@ export default async function Jogador({ params }: PageProps<"/elenco/[slug]">) {
           <p className="mt-1 text-lg">{f.nome}</p>
           {outrosApelidos.length > 0 && (
             <p className="text-sm text-muted">Também já jogou como {outrosApelidos.join(", ")}</p>
+          )}
+          {f.fundador && (
+            <p className="mt-3 text-sm text-gold-light">Fundou o {clube.nomeCompleto} em {formatarData(clube.fundacaoData)}.</p>
           )}
           {numeros.length > 0 && (
             <p className="mt-3 text-sm text-muted">

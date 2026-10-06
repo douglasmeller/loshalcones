@@ -9,6 +9,7 @@ export type Jogador = {
   nome: string;
   goleiro?: boolean;
   capitao?: boolean;
+  fundador?: boolean;
   jogos?: number;
   foto?: string;
 };
@@ -18,7 +19,7 @@ export const jogadores: Jogador[] = [
   { slug: "silvarenga", apelido: "Silvarenga", nome: "Gabriel Silvarenga", jogos: 5 },
   { slug: "falaschi", apelido: "Falaschi", nome: "Felipe Falaschi Cadedo", goleiro: true, jogos: 11 },
   { slug: "doug", apelido: "Doug", nome: "Douglas Fabiano Guirado" },
-  { slug: "douglas", apelido: "Douglas", nome: "Douglas Meller Guirado" },
+  { slug: "douglas", apelido: "Douglas", nome: "Douglas Meller Guirado", fundador: true },
   { slug: "guiradinho", apelido: "Guiradinho", nome: "Joshua Filipe Rodrigues Guirado" },
   { slug: "gringo", apelido: "Gringo", nome: "Diego Povidaiko" },
   { slug: "ricardo", apelido: "Ricardo", nome: "Ricardo Augusto Guirado" },

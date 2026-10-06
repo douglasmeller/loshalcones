@@ -4,6 +4,7 @@ import Link from "next/link";
 import { Selo, Titulo } from "@/components/ui";
 import { clube } from "@/data/clube";
 import { edicoesAntigas, golsDaEdicao } from "@/data/edicoes";
+import { acharJogador } from "@/data/jogadores";
 import { proxima } from "@/data/proxima";
 import { formatarData } from "@/lib/datas";
 
@@ -11,11 +12,12 @@ export const metadata: Metadata = { title: "Edições" };
 
 export default function Edicoes() {
   const datas = proxima.dataConfirmada ? [proxima.dataConfirmada] : proxima.datasPossiveis;
+  const fundador = acharJogador(clube.fundador);
   return (
     <div className="mx-auto max-w-4xl px-4 py-12">
       <Titulo
         sobre="Nossa história"
-        sub={`O ${clube.nomeCompleto} nasceu em ${clube.fundacao} para disputar a Meller Cup, o torneio que os primos organizam e que é jogado em um único dia. Cada edição é uma página da nossa história.`}
+        sub={`O ${clube.nomeCompleto} foi fundado por ${fundador?.nome} em ${formatarData(clube.fundacaoData)}, para disputar a Meller Cup, o torneio que os primos organizam e que é jogado em um único dia. Cada edição é uma página da nossa história.`}
       >
         Edições
       </Titulo>
