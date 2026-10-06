@@ -1,26 +1,51 @@
 @import "tailwindcss";
 
+/* Cores tiradas do escudo: preto, dourado e vermelho. */
 :root {
-  --background: #ffffff;
-  --foreground: #171717;
+  --background: #0a0a0a;
+  --foreground: #f2ede2;
+  --muted: #a69f90;
+  --card: #141312;
+  --card-2: #1b1a18;
+  --line: #2c2924;
+  --gold: #e0b03c;
+  --gold-light: #f5d784;
+  --gold-dark: #9c7420;
+  --red: #b5161e;
 }
 
 @theme inline {
   --color-background: var(--background);
   --color-foreground: var(--foreground);
+  --color-muted: var(--muted);
+  --color-card: var(--card);
+  --color-card-2: var(--card-2);
+  --color-line: var(--line);
+  --color-gold: var(--gold);
+  --color-gold-light: var(--gold-light);
+  --color-gold-dark: var(--gold-dark);
+  --color-halcon: var(--red);
   --font-sans: var(--font-geist-sans);
-  --font-mono: var(--font-geist-mono);
-}
-
-@media (prefers-color-scheme: dark) {
-  :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
-  }
+  --font-display: var(--font-cinzel);
 }
 
 body {
   background: var(--background);
   color: var(--foreground);
-  font-family: Arial, Helvetica, sans-serif;
+  font-family: var(--font-geist-sans), system-ui, sans-serif;
+}
+
+.texto-ouro {
+  background: linear-gradient(180deg, var(--gold-light), var(--gold) 55%, var(--gold-dark));
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+}
+
+.borda-ouro {
+  border: 1px solid color-mix(in srgb, var(--gold) 45%, transparent);
+}
+
+details > summary::-webkit-details-marker {
+  display: none;
 }
