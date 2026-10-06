@@ -35,14 +35,14 @@ export default async function Jogador({ params }: PageProps<"/elenco/[slug]">) {
       </Link>
 
       <div className="mt-6 grid items-center gap-8 sm:grid-cols-[auto_1fr]">
-        <div className="relative mx-auto flex aspect-[3/4] w-48 items-center justify-center overflow-hidden rounded-xl borda-ouro bg-gradient-to-b from-card-2 to-card">
+        <div className="escudo-entrar relative mx-auto flex aspect-[3/4] w-48 items-center justify-center overflow-hidden rounded-xl borda-ouro bg-gradient-to-b from-card-2 to-card">
           {f.foto ? (
             <Image src={f.foto} alt={f.apelido} fill sizes="192px" className="object-cover" />
           ) : (
             <span className="font-display text-8xl font-extrabold texto-ouro">{f.numeroAtual ?? "–"}</span>
           )}
         </div>
-        <div>
+        <div className="hero-item">
           <div className="flex flex-wrap gap-2">
             {f.fundador && <Selo resultado="campeao">Fundador</Selo>}
             {f.capitao && <Selo resultado="campeao">Capitão</Selo>}
@@ -75,7 +75,7 @@ export default async function Jogador({ params }: PageProps<"/elenco/[slug]">) {
         <Secao titulo={lenda.titulo}>
           <ul className="space-y-2">
             {lenda.feitos.map((feito) => (
-              <li key={feito} className="flex gap-3 rounded-lg border border-line bg-card px-4 py-3">
+              <li key={feito} data-revelar className="flex gap-3 rounded-lg border border-line bg-card px-4 py-3">
                 <span className="text-gold">★</span>
                 {feito}
               </li>
@@ -85,7 +85,7 @@ export default async function Jogador({ params }: PageProps<"/elenco/[slug]">) {
       )}
 
       <Secao titulo="Pelo Halcones">
-        <div className="overflow-x-auto rounded-lg border border-line">
+        <div data-revelar className="overflow-x-auto rounded-lg border border-line">
           <table className="w-full text-left text-sm">
             <thead className="bg-card text-xs uppercase tracking-wider text-muted">
               <tr>

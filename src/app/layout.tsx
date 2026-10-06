@@ -3,6 +3,7 @@ import { Cinzel, Geist } from "next/font/google";
 import "./globals.css";
 import Header from "@/components/Header";
 import Footer from "@/components/Footer";
+import Revelador from "@/components/Revelador";
 import { clube } from "@/data/clube";
 
 const geistSans = Geist({
@@ -28,6 +29,7 @@ export default function RootLayout({ children }: LayoutProps<"/">) {
         <Header />
         <main className="flex-1">{children}</main>
         <Footer />
+        <Revelador />
       </body>
     </html>
   );

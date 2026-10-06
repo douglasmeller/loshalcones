@@ -22,9 +22,9 @@ export default function Edicoes() {
         Edições
       </Titulo>
 
-      <ol className="relative space-y-10 border-l border-gold/40 pl-8">
+      <ol className="linha-tempo relative space-y-10 border-l border-gold/40 pl-8">
         {edicoesAntigas.map((e) => (
-          <li key={e.slug} className="relative">
+          <li key={e.slug} data-revelar className="relative">
             <span
               className="absolute -left-[41px] top-1 h-5 w-5 rounded-full border-2 border-gold"
               style={{ background: e.corUniforme }}
@@ -32,7 +32,7 @@ export default function Edicoes() {
             />
             <Link href={`/edicoes/${e.slug}`} className="group grid gap-5 sm:grid-cols-[200px_1fr]">
               <div className="relative aspect-[3/2] overflow-hidden rounded-lg border border-line">
-                <Image src={e.foto} alt={e.fotoLegenda} fill sizes="200px" className="object-cover" />
+                <Image src={e.foto} alt={e.fotoLegenda} fill sizes="200px" className="object-cover transition-transform duration-700 group-hover:scale-110" />
               </div>
               <div>
                 <p className="text-xs uppercase tracking-wider text-muted">{e.mes}</p>
@@ -48,8 +48,8 @@ export default function Edicoes() {
             </Link>
           </li>
         ))}
-        <li className="relative">
-          <span className="absolute -left-[41px] top-1 h-5 w-5 rounded-full border-2 border-dashed border-gold bg-background" />
+        <li data-revelar className="relative">
+          <span className="ponto-pulso absolute -left-[41px] top-1 h-5 w-5 rounded-full border-2 border-dashed border-gold bg-background" />
           <Link href="/proxima-meller-cup" className="group block">
             <p className="text-xs uppercase tracking-wider text-muted">{datas.map((d) => formatarData(d)).join(" ou ")}</p>
             <h2 className="mt-1 font-display text-2xl font-extrabold uppercase text-muted group-hover:text-gold">

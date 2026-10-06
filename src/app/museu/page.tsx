@@ -21,11 +21,12 @@ export default function Museu() {
             <Link
               key={e.slug}
               href={`/edicoes/${e.slug}`}
-              className={`flex items-center gap-5 rounded-xl p-6 transition-colors hover:border-gold ${
+              data-revelar
+              className={`reluz botao flex items-center gap-5 rounded-xl p-6 hover:border-gold ${
                 e.resultado === "campeao" ? "borda-ouro bg-gradient-to-br from-card-2 to-card" : "border border-line bg-card"
               }`}
             >
-              <span className="text-6xl">{e.resultado === "campeao" ? "🏆" : "🥈"}</span>
+              <span className="trofeu text-6xl">{e.resultado === "campeao" ? "🏆" : "🥈"}</span>
               <span>
                 <Selo resultado={e.resultado}>{e.resultadoTexto}</Selo>
                 <span className="mt-2 block font-display text-2xl font-extrabold uppercase">{e.nome}</span>
@@ -37,8 +38,8 @@ export default function Museu() {
       </Secao>
 
       <Secao titulo="O escudo">
-        <div className="grid items-center gap-8 rounded-xl border border-line bg-card p-6 sm:grid-cols-[auto_1fr]">
-          <Image src={clube.escudo} alt={`Escudo do ${clube.nomeCompleto}`} width={220} height={220} className="mx-auto" />
+        <div data-revelar className="grid items-center gap-8 rounded-xl border border-line bg-card p-6 sm:grid-cols-[auto_1fr]">
+          <Image src={clube.escudo} alt={`Escudo do ${clube.nomeCompleto}`} width={220} height={220} className="escudo-flutuante mx-auto" />
           <div>
             <h3 className="font-display text-2xl font-extrabold uppercase">{clube.nomeCompleto}</h3>
             <p className="mt-3 text-muted">
@@ -48,7 +49,7 @@ export default function Museu() {
             <p className="mt-4 font-display text-lg text-gold-light">“{clube.slogan}”</p>
           </div>
         </div>
-        <div className="mt-4 flex justify-center rounded-xl border border-line bg-card p-6">
+        <div data-revelar className="mt-4 flex justify-center rounded-xl border border-line bg-card p-6">
           <Image src={clube.logo} alt={`Logo do ${clube.nomeCompleto}`} width={420} height={179} className="h-auto w-full max-w-md" />
         </div>
       </Secao>
@@ -56,7 +57,7 @@ export default function Museu() {
       <Secao titulo="Uniformes">
         <div className="grid gap-4 sm:grid-cols-2">
           {edicoesAntigas.map((e) => (
-            <div key={e.slug} className="flex items-center gap-4 rounded-lg border border-line bg-card p-4">
+            <div key={e.slug} data-revelar className="flex items-center gap-4 rounded-lg border border-line bg-card p-4">
               <span
                 className="h-14 w-14 shrink-0 rounded-lg border-2 border-gold"
                 style={{ background: e.corUniforme }}
@@ -78,7 +79,7 @@ export default function Museu() {
           {edicoesRecentes.map((e) => (
             <figure key={e.slug}>
               <Foto src={e.foto} alt={e.fotoLegenda} />
-              <figcaption className="mt-2 text-sm text-muted">
+              <figcaption data-revelar className="mt-2 text-sm text-muted">
                 <strong className="text-foreground">{e.nome}.</strong> {e.fotoLegenda}
               </figcaption>
             </figure>

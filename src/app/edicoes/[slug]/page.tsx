@@ -37,7 +37,7 @@ export default async function Edicao({ params }: PageProps<"/edicoes/[slug]">) {
 
       <div className="mt-6 grid items-center gap-8 md:grid-cols-[3fr_2fr]">
         <Foto src={e.foto} alt={e.fotoLegenda} priority />
-        <div>
+        <div data-revelar="direita">
           <Selo resultado={e.resultado}>{e.resultadoTexto}</Selo>
           <h1 className="mt-3 font-display text-4xl font-extrabold uppercase texto-ouro sm:text-5xl">{e.nome}</h1>
           <p className="mt-1 text-muted">
@@ -58,7 +58,9 @@ export default async function Edicao({ params }: PageProps<"/edicoes/[slug]">) {
         {e.jogos.length > 0 && (
           <div className="grid gap-3 md:grid-cols-2">
             {e.jogos.map((jogo) => (
-              <Placar key={jogo.fase + jogo.adversario} jogo={jogo} />
+              <div key={jogo.fase + jogo.adversario} data-revelar>
+                <Placar jogo={jogo} />
+              </div>
             ))}
           </div>
         )}
@@ -72,7 +74,7 @@ export default async function Edicao({ params }: PageProps<"/edicoes/[slug]">) {
       <Secao titulo="Artilheiros">
         <ol className="divide-y divide-line rounded-lg border border-line">
           {artilheiros.map((a) => (
-            <li key={a.jogador} className="flex items-center justify-between px-4 py-3">
+            <li key={a.jogador} data-revelar className="flex items-center justify-between px-4 py-3">
               <Link href={`/elenco/${a.jogador}`} className="hover:text-gold">
                 <span className="mr-3 inline-block w-5 font-display text-gold">{a.posicao}</span>
                 {a.apelido ?? a.j.apelido}
@@ -87,7 +89,7 @@ export default async function Edicao({ params }: PageProps<"/edicoes/[slug]">) {
         <Secao titulo="Galeria">
           <div className="space-y-10">
             {e.galeria.map((g) => (
-              <figure key={g.foto} className="grid items-center gap-6 md:grid-cols-2">
+              <figure key={g.foto} data-revelar className="grid items-center gap-6 md:grid-cols-2">
                 <Image
                   src={g.foto}
                   alt={g.legenda.split("\n")[0]}
@@ -110,10 +112,10 @@ export default async function Edicao({ params }: PageProps<"/edicoes/[slug]">) {
       <Secao titulo="Elenco">
         <ul className="grid grid-cols-2 gap-2 sm:grid-cols-3 md:grid-cols-4">
           {elenco.map((c) => (
-            <li key={c.jogador}>
+            <li key={c.jogador} data-revelar>
               <Link
                 href={`/elenco/${c.jogador}`}
-                className="flex items-center gap-3 rounded-lg border border-line bg-card px-3 py-2.5 hover:border-gold"
+                className="botao flex items-center gap-3 rounded-lg border border-line bg-card px-3 py-2.5 hover:border-gold"
               >
                 <span className="w-8 text-center font-display text-lg font-extrabold text-gold">{c.numero ?? "–"}</span>
                 <span className="flex min-w-0 items-center gap-1.5 text-sm font-semibold">

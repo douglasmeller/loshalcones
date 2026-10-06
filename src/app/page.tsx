@@ -18,36 +18,53 @@ export default function Inicio() {
     <div className="mx-auto max-w-6xl px-4">
       <section className="grid items-center gap-10 py-12 md:grid-cols-[1fr_auto] md:py-16">
         <div className="order-2 md:order-1">
-          <p className="text-xs font-semibold uppercase tracking-[0.35em] text-halcon">Club de Futbol</p>
-          <h1 className="mt-2 font-display text-5xl font-extrabold uppercase leading-none texto-ouro sm:text-7xl">
+          <p className="hero-item text-xs font-semibold uppercase tracking-[0.35em] text-halcon" style={i(0)}>
+            Club de Futbol
+          </p>
+          <h1
+            className="hero-item mt-2 font-display text-5xl font-extrabold uppercase leading-none brilho-ouro sm:text-7xl"
+            style={i(1)}
+          >
             Los Halcones
           </h1>
-          <p className="mt-5 font-display text-xl text-gold-light">“{clube.slogan}”</p>
-          <p className="mt-4 max-w-md text-muted">
+          <p className="hero-item mt-5 font-display text-xl text-gold-light" style={i(2)}>
+            “{clube.slogan}”
+          </p>
+          <p className="hero-item mt-4 max-w-md text-muted" style={i(3)}>
             {clube.descricao} {clube.sigla}, desde {clube.fundacao}.
           </p>
-          <div className="mt-7 flex flex-wrap gap-3">
-            <Link href="/elenco" className="rounded bg-gold px-5 py-2.5 text-sm font-bold text-black hover:bg-gold-light">
+          <div className="hero-item mt-7 flex flex-wrap gap-3" style={i(4)}>
+            <Link href="/elenco" className="botao reluz rounded bg-gold px-5 py-2.5 text-sm font-bold text-black hover:bg-gold-light">
               Conheça o elenco
             </Link>
-            <Link href="/edicoes" className="rounded border border-line px-5 py-2.5 text-sm hover:border-gold hover:text-gold">
+            <Link
+              href="/edicoes"
+              className="botao rounded border border-line px-5 py-2.5 text-sm hover:border-gold hover:text-gold"
+            >
               Nossa história
             </Link>
           </div>
         </div>
-        <Image
-          src={clube.escudo}
-          alt={`Escudo do ${clube.nomeCompleto}`}
-          width={340}
-          height={340}
-          priority
-          className="order-1 mx-auto w-52 drop-shadow-[0_0_40px_rgba(224,176,60,0.25)] sm:w-72 md:order-2 md:w-[340px]"
-        />
+        <div className="relative order-1 mx-auto md:order-2">
+          <div
+            aria-hidden
+            className="aura absolute inset-6 rounded-full bg-[radial-gradient(circle,rgba(224,176,60,0.45),rgba(181,22,30,0.25)_45%,transparent_70%)] blur-2xl"
+          />
+          <Image
+            src={clube.escudo}
+            alt={`Escudo do ${clube.nomeCompleto}`}
+            width={340}
+            height={340}
+            priority
+            className="escudo-flutuante relative w-52 sm:w-72 md:w-[340px]"
+          />
+        </div>
       </section>
 
       <Link
         href="/proxima-meller-cup"
-        className="flex flex-col gap-3 rounded-xl borda-ouro bg-gradient-to-r from-card-2 via-card to-card p-5 transition-colors hover:border-gold sm:flex-row sm:items-center sm:justify-between"
+        data-revelar
+        className="reluz flex flex-col gap-3 rounded-xl borda-ouro bg-gradient-to-r from-card-2 via-card to-card p-5 transition-colors hover:border-gold sm:flex-row sm:items-center sm:justify-between"
       >
         <div>
           <p className="text-xs uppercase tracking-[0.25em] text-halcon">{proxima.nome}</p>
@@ -75,7 +92,7 @@ export default function Inicio() {
       <Secao titulo="Atual campeão" acao={<MaisLink href={`/edicoes/${ultima.slug}`}>Ver edição</MaisLink>}>
         <div className="grid items-center gap-6 md:grid-cols-[3fr_2fr]">
           <Foto src={ultima.foto} alt={ultima.fotoLegenda} />
-          <div>
+          <div data-revelar="direita">
             <Selo resultado={ultima.resultado}>{ultima.resultadoTexto}</Selo>
             <h3 className="mt-3 font-display text-3xl font-extrabold uppercase">{ultima.nome}</h3>
             <p className="text-sm text-muted">{ultima.mes}</p>
@@ -90,7 +107,8 @@ export default function Inicio() {
             <Link
               key={l.jogador}
               href={`/elenco/${l.jogador}`}
-              className="rounded-lg border border-line bg-card p-4 transition-colors hover:border-gold"
+              data-revelar
+              className="reluz botao rounded-lg border border-line bg-card p-4 hover:border-gold"
             >
               <div className="font-display text-4xl font-extrabold texto-ouro">{l.numero}</div>
               <div className="mt-1 font-display font-semibold uppercase">{acharJogador(l.jogador)?.apelido}</div>
@@ -103,8 +121,8 @@ export default function Inicio() {
       <Secao titulo="Últimas notícias" acao={<MaisLink href="/noticias">Todas</MaisLink>}>
         <ul className="divide-y divide-line border-y border-line">
           {noticiasRecentes.slice(0, 3).map((n) => (
-            <li key={n.slug}>
-              <Link href={`/noticias/${n.slug}`} className="group block py-4">
+            <li key={n.slug} data-revelar>
+              <Link href={`/noticias/${n.slug}`} className="group block py-4 transition-[padding] duration-500 hover:pl-3">
                 <span className="text-xs uppercase tracking-wider text-muted">{formatarData(n.data)}</span>
                 <span className="block font-display text-lg font-semibold group-hover:text-gold">{n.titulo}</span>
                 <span className="block text-sm text-muted">{n.resumo}</span>
@@ -115,6 +133,11 @@ export default function Inicio() {
       </Secao>
     </div>
   );
+}
+
+// Ordem de entrada dos itens do topo.
+function i(n: number) {
+  return { "--i": n } as React.CSSProperties;
 }
 
 function MaisLink({ href, children }: { href: string; children: React.ReactNode }) {

@@ -31,7 +31,7 @@ export default function ProximaMellerCup() {
 
       <div className={`grid gap-4 ${datas.length > 1 ? "sm:grid-cols-2" : ""}`}>
         {datas.map((d) => (
-          <div key={d} className="rounded-xl borda-ouro bg-gradient-to-br from-card-2 to-card p-6 text-center">
+          <div key={d} data-revelar className="reluz rounded-xl borda-ouro bg-gradient-to-br from-card-2 to-card p-6 text-center">
             <p className="text-xs uppercase tracking-[0.25em] text-muted">{diaDaSemana(d)}</p>
             <p className="mt-2 font-display text-3xl font-extrabold">{formatarData(d)}</p>
             <p className="mt-3 font-display text-xl text-gold">
@@ -70,7 +70,7 @@ export default function ProximaMellerCup() {
       </Secao>
 
       <div className="mt-16 flex justify-center">
-        <Image src={clube.escudo} alt="" width={96} height={96} className="opacity-60" />
+        <Image src={clube.escudo} alt="" width={96} height={96} className="escudo-flutuante opacity-60" />
       </div>
     </div>
   );

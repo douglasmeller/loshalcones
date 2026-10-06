@@ -39,8 +39,8 @@ export default function Estatisticas() {
         <Numero valor={saldo > 0 ? `+${saldo}` : saldo} rotulo="Saldo de gols" />
       </div>
 
-      <div className="mt-6 rounded-lg border border-line bg-card p-4">
-        <div className="flex h-4 overflow-hidden rounded-full">
+      <div data-revelar className="mt-6 rounded-lg border border-line bg-card p-4">
+        <div className="crescer flex h-4 overflow-hidden rounded-full">
           {barras.map((b) => (
             <div key={b.rotulo} className={b.cor} style={{ width: `${(b.n / c.partidas) * 100}%` }} />
           ))}
@@ -59,16 +59,16 @@ export default function Estatisticas() {
       <Secao titulo="Artilharia histórica">
         <ol className="space-y-2">
           {ranking.map((a) => (
-            <li key={a.slug}>
+            <li key={a.slug} data-revelar>
               <Link
                 href={`/elenco/${a.slug}`}
-                className="grid grid-cols-[2rem_1fr_auto] items-center gap-3 rounded-lg border border-line bg-card px-4 py-3 hover:border-gold"
+                className="botao grid grid-cols-[2rem_1fr_auto] items-center gap-3 rounded-lg border border-line bg-card px-4 py-3 hover:border-gold"
               >
                 <span className="font-display text-lg font-extrabold text-gold">{a.posicao}º</span>
                 <span>
                   <span className="font-semibold">{a.apelido}</span>
                   <span className="mt-1.5 block h-1.5 rounded-full bg-line">
-                    <span className="block h-full rounded-full bg-gold" style={{ width: `${(a.gols / maxGols) * 100}%` }} />
+                    <span className="crescer block h-full rounded-full bg-gradient-to-r from-gold-dark to-gold-light" style={{ width: `${(a.gols / maxGols) * 100}%` }} />
                   </span>
                 </span>
                 <span className="font-display text-2xl font-extrabold">{a.gols}</span>
@@ -79,7 +79,7 @@ export default function Estatisticas() {
       </Secao>
 
       <Secao titulo="Por edição">
-        <div className="overflow-x-auto rounded-lg border border-line">
+        <div data-revelar className="overflow-x-auto rounded-lg border border-line">
           <table className="w-full text-left text-sm">
             <thead className="bg-card text-xs uppercase tracking-wider text-muted">
               <tr>
@@ -113,7 +113,7 @@ export default function Estatisticas() {
       <Secao titulo="Jogos registrados">
         <div className="grid gap-3 md:grid-cols-2">
           {jogos.map((j) => (
-            <div key={j.edicao.slug + j.fase}>
+            <div key={j.edicao.slug + j.fase} data-revelar>
               <p className="mb-1 text-xs text-muted">{j.edicao.nome}</p>
               <Placar jogo={j} />
             </div>

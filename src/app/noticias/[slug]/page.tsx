@@ -34,7 +34,9 @@ export default async function Noticia({ params }: PageProps<"/noticias/[slug]">)
       )}
       <div className="mt-8 space-y-5 text-lg leading-relaxed">
         {n.corpo.map((p, i) => (
-          <p key={i}>{p}</p>
+          <p key={i} data-revelar>
+            {p}
+          </p>
         ))}
       </div>
     </article>

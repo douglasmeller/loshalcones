@@ -48,9 +48,10 @@ export default function HallDaFama() {
             <Link
               key={l.jogador}
               href={`/elenco/${l.jogador}`}
-              className="group relative overflow-hidden rounded-xl borda-ouro bg-gradient-to-br from-card-2 to-card p-6 transition-transform hover:-translate-y-1"
+              data-revelar
+              className="reluz botao group relative overflow-hidden rounded-xl borda-ouro bg-gradient-to-br from-card-2 to-card p-6"
             >
-              <span className="pointer-events-none absolute -right-4 -top-8 font-display text-[9rem] font-extrabold leading-none text-gold/10">
+              <span className="pointer-events-none absolute -right-4 -top-8 font-display text-[9rem] font-extrabold leading-none text-gold/10 transition-transform duration-700 group-hover:-translate-x-3 group-hover:scale-110">
                 {l.numero}
               </span>
               <p className="text-xs uppercase tracking-[0.25em] text-halcon">{l.titulo}</p>
@@ -74,7 +75,7 @@ export default function HallDaFama() {
       <Secao titulo="Recordes">
         <div className="grid gap-3 md:grid-cols-3">
           {recordes.map((r) => (
-            <div key={r.rotulo} className="rounded-lg border border-line bg-card p-5">
+            <div key={r.rotulo} data-revelar className="reluz rounded-lg border border-line bg-card p-5">
               <p className="text-xs uppercase tracking-wider text-muted">{r.rotulo}</p>
               <p className="mt-2 font-display text-2xl font-extrabold text-gold">{r.valor}</p>
               <p className="mt-2 text-sm">

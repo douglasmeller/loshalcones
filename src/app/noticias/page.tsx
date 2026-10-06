@@ -14,14 +14,14 @@ export default function Noticias() {
       <Titulo sobre="Notícias">O que rolou</Titulo>
       <ul className="space-y-4">
         {noticiasRecentes.map((n) => (
-          <li key={n.slug}>
+          <li key={n.slug} data-revelar>
             <Link
               href={`/noticias/${n.slug}`}
-              className="group grid gap-4 rounded-xl border border-line bg-card p-4 hover:border-gold sm:grid-cols-[180px_1fr]"
+              className="reluz botao group grid gap-4 rounded-xl border border-line bg-card p-4 hover:border-gold sm:grid-cols-[180px_1fr]"
             >
               <div className="relative aspect-[3/2] overflow-hidden rounded-lg bg-card-2">
                 {n.foto ? (
-                  <Image src={n.foto} alt="" fill sizes="180px" className="object-cover" />
+                  <Image src={n.foto} alt="" fill sizes="180px" className="object-cover transition-transform duration-700 group-hover:scale-110" />
                 ) : (
                   <Image src={clube.escudo} alt="" fill sizes="180px" className="object-contain p-4 opacity-80" />
                 )}
