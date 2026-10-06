@@ -31,7 +31,8 @@ export const noticias: Noticia[] = [
     corpo: [
       "Seis meses depois do vice na estreia, o Halcones voltou à Meller Cup de camisa preta e saiu com o título.",
       "Na semifinal, o clássico contra os Pipizudos terminou 4 a 0. Na grande final, vitória por 3 a 2 sobre o Namoral, com 2 gols de Silvarenga.",
-      "Silvarenga terminou o torneio como artilheiro e MVP, com 6 gols. O capitão Lucas Guirado marcou mais 5.",
+      "Silvarenga terminou o torneio como artilheiro e MVP, com 6 gols, e ainda levou o prêmio de gol mais bonito. O capitão Lucas Guirado marcou mais 5.",
+      "Debaixo das traves, Falaschi foi eleito o melhor goleiro do torneio. O Halcones papou tudo e todos.",
     ],
   },
   {
