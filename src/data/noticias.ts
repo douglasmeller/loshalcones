@@ -27,7 +27,6 @@ export const noticias: Noticia[] = [
     titulo: "Los Halcones é campeão da Meller Cup",
     data: "2025-07",
     resumo: "4 a 0 nos Pipizudos na semifinal, 3 a 2 no Namoral na final. O título é do Halcones.",
-    foto: "/fotos/meller-cup-jul-2025.jpg",
     corpo: [
       "Seis meses depois do vice na estreia, o Halcones voltou à Meller Cup de camisa preta e saiu com o título.",
       "Na semifinal, o clássico contra os Pipizudos terminou 4 a 0. Na grande final, vitória por 3 a 2 sobre o Namoral, com 2 gols de Silvarenga.",
@@ -40,7 +39,6 @@ export const noticias: Noticia[] = [
     titulo: "Na estreia, Los Halcones é vice da Meller Cup",
     data: "2025-02",
     resumo: "O clube nasceu, foi à final no primeiro torneio e voltou para casa com a medalha de prata.",
-    foto: "/fotos/meller-cup-fev-2025.webp",
     corpo: [
       "O Club de Futbol Los Halcones fez sua estreia na Meller Cup de fevereiro de 2025, de camisa vermelha.",
       "Em um único dia de jogos, o time chegou à final e terminou como vice-campeão. O capitão Lucas Guirado fez 5 dos 7 gols do clube no torneio.",
