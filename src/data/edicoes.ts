@@ -51,8 +51,8 @@ export const edicoes: Edicao[] = [
     resultadoTexto: "Vice-campeão",
     uniforme: "Vermelho",
     corUniforme: "#c4161c",
-    foto: "/fotos/meller-cup-fev-2025.webp",
-    fotoLegenda: "O primeiro Los Halcones, de vermelho, com as medalhas de vice-campeão.",
+    foto: "/fotos/meller-cup-fev-2025-time.jpg",
+    fotoLegenda: "O elenco do Los Halcones, de vermelho, na 1ª Meller Cup.",
     resumo:
       "A estreia do clube. Em um único dia de jogos, o Halcones chegou à sua primeira final e terminou como vice-campeão. Lucas Guirado marcou 5 dos 7 gols do time.",
     jogos: [],
@@ -73,8 +73,8 @@ export const edicoes: Edicao[] = [
     ],
     galeria: [
       {
-        foto: "/fotos/meller-cup-fev-2025-time.jpg",
-        legenda: "O elenco do Los Halcones, de vermelho, na 1ª Meller Cup.",
+        foto: "/fotos/meller-cup-fev-2025.webp",
+        legenda: "O primeiro Los Halcones, de vermelho, com as medalhas de vice-campeão.",
       },
     ],
   },
