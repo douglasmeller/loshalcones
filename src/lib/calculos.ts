@@ -1,5 +1,6 @@
 import { edicoesAntigas, type Edicao } from "@/data/edicoes";
 import { jogadores, type Jogador } from "@/data/jogadores";
+import { proxima } from "@/data/proxima";
 
 export type Participacao = {
   edicao: Edicao;
@@ -12,6 +13,9 @@ export type FichaJogador = Jogador & {
   participacoes: Participacao[];
   gols: number;
   numeroAtual?: number;
+  // Convocação para a próxima Meller Cup, se houver.
+  convocado?: { numero: number; apelido?: string };
+  estreante: boolean;
 };
 
 export function fichaDe(j: Jogador): FichaJogador {
@@ -20,11 +24,15 @@ export function fichaDe(j: Jogador): FichaJogador {
     const c = e.elenco.find((x) => x.jogador === j.slug);
     if (c) participacoes.push({ edicao: e, numero: c.numero, gols: c.gols ?? 0, apelido: c.apelido ?? j.apelido });
   }
+  const convocado = proxima.elenco.find((c) => c.jogador === j.slug);
   return {
     ...j,
     participacoes,
     gols: participacoes.reduce((t, p) => t + p.gols, 0),
-    numeroAtual: participacoes.at(-1)?.numero,
+    // O número da próxima edição vale como o atual (é o que está nos cartazes).
+    numeroAtual: convocado?.numero ?? participacoes.at(-1)?.numero,
+    convocado,
+    estreante: participacoes.length === 0,
   };
 }
 
