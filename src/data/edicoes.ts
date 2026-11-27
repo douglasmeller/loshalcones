@@ -71,6 +71,12 @@ export const edicoes: Edicao[] = [
       { jogador: "joao", numero: 88 },
       { jogador: "will", numero: 28 },
     ],
+    galeria: [
+      {
+        foto: "/fotos/meller-cup-fev-2025-time.jpg",
+        legenda: "O elenco do Los Halcones, de vermelho, na 1ª Meller Cup.",
+      },
+    ],
   },
   {
     slug: "2-meller-cup",
